@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { @apply font-sans text-slate-600 bg-white antialiased; overflow-x: hidden; }
+h1, h2, h3 { @apply text-slate-900 tracking-tight; }
+::selection { background: #f7d58a; }
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8; }
+  .section { @apply py-16 sm:py-24; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition duration-200 min-h-[44px] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2; }
+  .btn-primary { @apply bg-brand-700 text-white hover:bg-brand-800 hover:-translate-y-0.5 shadow-md shadow-brand-900/10 hover:shadow-lg; }
+  .btn-gold { @apply bg-sun-400 text-brand-900 hover:bg-sun-500 hover:-translate-y-0.5 shadow-md; }
+  .btn-outline { @apply border border-brand-700 text-brand-700 hover:bg-brand-700 hover:text-white; }
+  .btn-ghost-light { @apply border border-white/40 text-white hover:bg-white/10; }
+  .btn-whatsapp { @apply bg-[#25D366] text-white hover:bg-[#1ebe5a] hover:-translate-y-0.5 shadow-md; }
+  .card { @apply rounded-xl border border-slate-200 bg-white overflow-hidden shadow-sm transition duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-brand-900/10 hover:border-brand-200; }
+  .eyebrow { @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-brand-700; }
+  .eyebrow::before { content: ''; @apply h-0.5 w-6 rounded bg-sun-500; }
+  .hero-glow { background: radial-gradient(55% 60% at 85% 15%, rgba(247,183,51,.22), transparent 60%), radial-gradient(50% 60% at 0% 100%, rgba(59,111,182,.35), transparent 60%), radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px); background-size: auto, auto, 22px 22px; }
+}
+
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
